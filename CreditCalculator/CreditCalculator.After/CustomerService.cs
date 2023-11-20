@@ -1,21 +1,10 @@
 ﻿namespace CreditCalculator.After;
 
-public class CustomerService
+public class CustomerService(
+    CompanyRepository companyRepository,
+    CustomerRepository customerRepository,
+    CreditLimitCalculator creditLimitCalculator)
 {
-    private readonly CompanyRepository _companyRepository;
-    private readonly CustomerRepository _customerRepository;
-    private readonly CreditLimitCalculator _creditLimitCalculator;
-
-    public CustomerService(
-        CompanyRepository companyRepository,
-        CustomerRepository customerRepository,
-        CreditLimitCalculator creditLimitCalculator)
-    {
-        _companyRepository = companyRepository;
-        _customerRepository = customerRepository;
-        _creditLimitCalculator = creditLimitCalculator;
-    }
-
     public bool AddCustomer(
         string firstName,
         string lastName,
@@ -28,7 +17,7 @@ public class CustomerService
             return false;
         }
 
-        var company = _companyRepository.GetById(companyId);
+        var company = companyRepository.GetById(companyId);
 
         var customer = new Customer
         {
@@ -40,14 +29,14 @@ public class CustomerService
         };
 
         (customer.HasCreditLimit, customer.CreditLimit) =
-            _creditLimitCalculator.Calculate(customer, company);
+            creditLimitCalculator.Calculate(customer, company);
 
         if (customer is { HasCreditLimit: true, CreditLimit: < 500 })
         {
             return false;
         }
 
-        _customerRepository.AddCustomer(customer);
+        customerRepository.AddCustomer(customer);
 
         return true;
     }

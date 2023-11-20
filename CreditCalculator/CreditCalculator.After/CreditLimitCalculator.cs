@@ -1,14 +1,7 @@
 ﻿namespace CreditCalculator.After;
 
-public class CreditLimitCalculator
+public class CreditLimitCalculator(CustomerCreditServiceClient customerCreditServiceClient)
 {
-    private readonly CustomerCreditServiceClient _customerCreditServiceClient;
-
-    public CreditLimitCalculator(CustomerCreditServiceClient customerCreditServiceClient)
-    {
-        _customerCreditServiceClient = customerCreditServiceClient;
-    }
-
     public (bool HasCreditLimit, decimal? CreditLimit) Calculate(
         Customer customer,
         Company company)
@@ -23,7 +16,7 @@ public class CreditLimitCalculator
 
     private decimal GetCreditLimit(Customer customer)
     {
-        return _customerCreditServiceClient.GetCreditLimit(
+        return customerCreditServiceClient.GetCreditLimit(
             customer.FirstName,
             customer.LastName,
             customer.DateOfBirth);
