@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCalculator.Before", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCalculator.After", "CreditCalculator.After\CreditCalculator.After.csproj", "{F7F4F7CF-4F83-4982-BFB2-D33E3EFA0049}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCalculator.Tests", "CreditCalculator.Tests\CreditCalculator.Tests.csproj", "{54C6FC76-AD79-4734-8B66-3C4B6C526EDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F7F4F7CF-4F83-4982-BFB2-D33E3EFA0049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F4F7CF-4F83-4982-BFB2-D33E3EFA0049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F4F7CF-4F83-4982-BFB2-D33E3EFA0049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C6FC76-AD79-4734-8B66-3C4B6C526EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C6FC76-AD79-4734-8B66-3C4B6C526EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C6FC76-AD79-4734-8B66-3C4B6C526EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C6FC76-AD79-4734-8B66-3C4B6C526EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

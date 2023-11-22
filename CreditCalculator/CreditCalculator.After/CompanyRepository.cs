@@ -4,9 +4,9 @@ public class CompanyRepository
 {
     private readonly List<Company> _companies = new()
     {
-        Company.Regular,
-        Company.Regular,
-        Company.Regular
+        Company.RegularClient,
+        Company.ImportantClient,
+        Company.VeryImportantClient
     };
 
     public Company GetById(int companyId)
