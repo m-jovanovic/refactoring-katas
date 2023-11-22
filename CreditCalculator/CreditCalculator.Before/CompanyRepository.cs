@@ -2,8 +2,15 @@
 
 public class CompanyRepository
 {
+    private readonly List<Company> _companies = new()
+    {
+        Company.Regular,
+        Company.Regular,
+        Company.Regular
+    };
+
     public Company GetById(int companyId)
     {
-        throw new NotImplementedException();
+        return _companies.Single(c => c.Id == companyId);
     }
 }

@@ -2,8 +2,18 @@
 
 public class CustomerCreditServiceClient
 {
-    public decimal GetCreditLimit(string firstname, string surname, DateTime dateOfBirth)
+    public decimal GetCreditLimit(string firstName, string lastName, DateTime dateOfBirth)
     {
-        throw new NotImplementedException();
+        if (firstName == "John" && lastName == "Doe")
+        {
+            return 400.0m;
+        }
+
+        if (DateTime.Now.AddYears(dateOfBirth.Year).Year > 40)
+        {
+            return 600.0m;
+        }
+
+        return 251.0m;
     }
 }
